@@ -196,19 +196,15 @@ epochs = 10
 steps_per_epoch = 100
 
 step = 0
+
 for n in range(epochs):
   for m in range(steps_per_epoch):
     step += 1
     train_step(image)
     print(".", end='')
-  #display.clear_output(wait=True)
   imshow(image.read_value())
-  plt.title("Train step: {}".format(step))
-  plt.show()
+  if n==9:
+      plt.savefig('/Users/xuhao/Documents/GitHub/Style_Transfer/test.png')
 
 end = time.time()
 print("Total time: {:.1f}".format(end-start))
-
-
-file_name = 'kadinsky-turtle.png'
-mpl.image.imsave(file_name, image[0])
