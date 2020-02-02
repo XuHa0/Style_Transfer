@@ -4,6 +4,8 @@ import tensorflow as tf
 import IPython.display as display
 import matplotlib.pyplot as plt
 import matplotlib as mpl
+
+
 mpl.rcParams['figure.figsize'] = (12,12)
 mpl.rcParams['axes.grid'] = False
 
@@ -12,9 +14,15 @@ import time
 import functools
 
 
-content_path = tf.keras.utils.get_file('turtle.jpg','https://storage.googleapis.com/download.tensorflow.org/example_images/Green_Sea_Turtle_grazing_seagrass.jpg')
-style_path = tf.keras.utils.get_file('kandinsky.jpg','https://storage.googleapis.com/download.tensorflow.org/example_images/Vassily_Kandinsky%2C_1913_-_Composition_7.jpg')
+#content_path = '/Users/xuhao/Documents/GitHub/Style_Transfer/Turtle.jpg'
+#style_path = '/Users/xuhao/Documents/GitHub/Style_Transfer/Kandinsky.jpg'
+#content_path = tf.keras.utils.get_file('turtle.jpg','https://storage.googleapis.com/download.tensorflow.org/example_images/Green_Sea_Turtle_grazing_seagrass.jpg')
+#style_path = tf.keras.utils.get_file('kandinsky.jpg','https://storage.googleapis.com/download.tensorflow.org/example_images/Vassily_Kandinsky%2C_1913_-_Composition_7.jpg')
 
+FLAGS = tf.compat.v1.flags.FLAGS
+tf.compat.v1.flags.DEFINE_string('content_path', '/Users/xuhao/Documents/GitHub/Style_Transfer/Turtle.jpg', 'Path of content_path.')
+tf.compat.v1.flags.DEFINE_string('style_path', '/Users/xuhao/Documents/GitHub/Style_Transfer/Kandinsky.jpg', 'Path of style_path.')
+tf.compat.v1.flags.DEFINE_string('saved_path', '/Users/xuhao/Documents/GitHub/Style_Transfer/test.png', 'Path of saved photo.')
 
 def load_img(path_to_img):
   max_dim = 512
@@ -41,8 +49,8 @@ def imshow(image, title=None):
   if title:
     plt.title(title)
 
-content_image = load_img(content_path)
-style_image = load_img(style_path)
+content_image = load_img(FLAGS.content_path)
+style_image = load_img(FLAGS.style_path)
 
 
 x = tf.keras.applications.vgg19.preprocess_input(content_image*255)
@@ -204,7 +212,7 @@ for n in range(epochs):
     print(".", end='')
   imshow(image.read_value())
   if n==9:
-      plt.savefig('/Users/xuhao/Documents/GitHub/Style_Transfer/test.png')
+      plt.savefig(FLAGS.saved_path)
 
 end = time.time()
 print("Total time: {:.1f}".format(end-start))
