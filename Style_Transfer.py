@@ -20,9 +20,9 @@ import functools
 #style_path = tf.keras.utils.get_file('kandinsky.jpg','https://storage.googleapis.com/download.tensorflow.org/example_images/Vassily_Kandinsky%2C_1913_-_Composition_7.jpg')
 
 FLAGS = tf.compat.v1.flags.FLAGS
-tf.compat.v1.flags.DEFINE_string('content_path', '/Users/xuhao/Documents/GitHub/Style_Transfer/Turtle.jpg', 'Path of content_path.')
-tf.compat.v1.flags.DEFINE_string('style_path', '/Users/xuhao/Documents/GitHub/Style_Transfer/Kandinsky.jpg', 'Path of style_path.')
-tf.compat.v1.flags.DEFINE_string('saved_path', '/Users/xuhao/Documents/GitHub/Style_Transfer/test.png', 'Path of saved photo.')
+tf.compat.v1.flags.DEFINE_string('content_path', './images/content.jpg', 'Path of content_path.')
+tf.compat.v1.flags.DEFINE_string('style_path', './images/style.jpg', 'Path of style_path.')
+tf.compat.v1.flags.DEFINE_string('saved_path', './output/output.png', 'Path of saved photo.')
 
 def load_img(path_to_img):
   max_dim = 512

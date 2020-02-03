@@ -1,1 +1,1 @@
-python3 Style_Transfer.py  --content_path="/Users/xuhao/Documents/GitHub/Style_Transfer/Turtle.jpg" --style_path="/Users/xuhao/Documents/GitHub/Style_Transfer/Kandinsky.jpg" --saved_path="/Users/xuhao/Documents/GitHub/Style_Transfer/test.png"
+python3 Style_Transfer.py  --content_path="./images/content.jpg" --style_path="./images/style.jpg" --saved_path="./output/output.png"
