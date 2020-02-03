@@ -11,3 +11,8 @@ Pre-trained model:
 content_path和style_path的路径为图片的网址，可以自行修改。
 代码运行的时间可能会比较长，建议使用GPU版本的tensorflow运行，在Tesla P100-PCIE-16GB下的运行时间为37.4s。
 
+How it works
+bash run.sh
+
+content.jpg 和 style.jpg需保存在iamges目录下 输出图片保存在output目录下 也可以自行修改run.sh文件定义图片文件路径。
+
